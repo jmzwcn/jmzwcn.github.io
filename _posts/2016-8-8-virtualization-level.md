@@ -11,7 +11,9 @@ category: linux
 <!--more-->
 
 Full virtualization (全虚拟化)，它是指所有硬件（CPU/内存/硬盘/网卡等）都被虚拟出来，由一个Hypervisor(就是一VMM)统一管理交互，特点就是GUEST OS可以不做任何修改，完全透明的运行。
+
 Paravirtualization(部分虚拟化)，它是并非所有硬件都被虚拟，相应的，它提供一个特定的API,去修改GUEST OS而使用这些API，从而消除一些瓶颈，提升性能。但随着INTEL/AMD提供了硬件级别的虚拟方案，全虚拟化的性能问题已经较好的解决了。
+
 OS-Virtualizaiton(操作系统级别虚拟化)，这是目前发展较快的一个领域，它提供多个隔离的运行环境，但这些运行环境却共享一个OS Kernel，典型的例子就是Docker。
 
 参考https://en.wikipedia.org/wiki/Hardware_virtualization
