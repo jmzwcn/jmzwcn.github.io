@@ -6,7 +6,7 @@ layout: post
 title: 'Linux硬件虚拟化的几个级别'
 category: linux
 ---
-虚拟化的几个级，及KVM的一点解读
+虚拟化的几个级别，及KVM的一点笔记
 
 <!--more-->
 
