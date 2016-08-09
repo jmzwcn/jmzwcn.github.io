@@ -18,11 +18,21 @@ Paravirtualization(部分虚拟化)，它是并非所有硬件都被虚拟，相
 
 OS-Virtualizaiton(操作系统级别虚拟化)，这是目前发展较快的一个领域，它提供多个隔离的运行环境，但这些运行环境却共享一个OS Kernel，典型的例子就是Docker。
 
+
+
+
+
 KVM是全虚拟化方案的一种，利用CPU的硬件(Intel VT or AMD-V)支持 ,它对外提供一个/dev/kvm接口。
 见下图
 ![](/assets/kvm/kvm-arch.jpg)
 
 kvm的源码还不小，可以[这里](http://git.kernel.org/cgit/virt/kvm/kvm.git)查看
+
+
+
+
+
+
 
 
 
