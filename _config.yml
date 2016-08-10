@@ -81,8 +81,8 @@ mathjax: false      #enable mathjax if true
 #### Author information
 author:
   name: Daniel      ## e.g. wuchong Author name
-  intro_line1:  "Hello, I'm Daniel Zhang."    ## your introduction on the bottom of the page
-  intro_line2:  "Too simple, sometimes naive."  ## the 2nd line
+  intro_line1:  "Hi, I'm Daniel Zhang."    ## your introduction on the bottom of the page
+  intro_line2:  "Enjoy your life."  ## the 2nd line
   weibo: jmzwcn      ## e.g. wuchong1014 or 2176287895 for http://weibo.com/2176287895
   weibo_verifier: 8266a57e  ## e.g. b3593ceb Your weibo-show widget verifier ,if you use weibo-show it is needed.
   tsina: 1836017133      ## e.g. 2176287895  Your weibo ID,It will be used in share button.
@@ -107,7 +107,7 @@ toc:
 #### Links
 links:
   码农圈: https://coderq.com
-  quqi99's blog: http://my.csdn.net/quqi99
+  quqi99's blog: http://blog.csdn.net/quqi99
 
 excerpt_separator: <!--more-->
 
