@@ -3,10 +3,10 @@ tags:
   - linux
   - 'virtualization'
 layout: post
-title: 'Linux硬件虚拟化的几个级别'
+title: 'Linux硬件虚拟化的几个级别及KVM'
 category: linux
 ---
-虚拟化的几个级别，实现方式，及KVM的一点笔记
+虚拟化的几个级别，及KVM的原理，实现方式
 
 <!--more-->
 
@@ -21,7 +21,7 @@ OS-Virtualizaiton(操作系统级别虚拟化)，这是目前发展较快的一�
 
 
 
-# KVM工作模型
+# KVM模型结构
 
 KVM是全虚拟化方案的一种，利用CPU的硬件(Intel VT or AMD-V)支持 ,它对外提供一个/dev/kvm接口。
 见下图
@@ -29,6 +29,7 @@ KVM是全虚拟化方案的一种，利用CPU的硬件(Intel VT or AMD-V)支持 
 
 # KVM工作流程
 ![](/assets/kvm/kvm_workflow.png)
+
 上图是一个执行过程图，首先启动一个虚拟化管理软件qemu，开始启动一个虚拟机，通过ioctl等系统调用向内核中申请指定的资源，搭建好虚拟环境，启动虚拟机内的OS，执行 VMLAUCH 指令，即进入了guest代码执行过程。如果 Guest OS 发生外部中断或者影子页表缺页之类的事件，暂停 Guest OS 的执行，退出QEMU即guest VM-exit，进行一些必要的处理，然后重新进入客户模式，执行guest代码；这个时候如果是io请求，则提交给用户态下的qemu处理，qemu处理后再次通过IOCTL反馈给KVM驱动。
 
 # CPU虚拟化
@@ -46,6 +47,11 @@ OS对于物理内存主要有两点认识：1.物理地址从0开始；2.内存�
 在OS代码中，应用也是占用所有的逻辑地址，同时不影响其他应用的关键点在于有线性地址这个中间层；解决方法则是添加了一个中间层：guest物理地址空间；guest看到是从0开始的guest物理地址空间（类比从0开始的线性地址），而且是连续的，虽然有些地址没有映射；同时guest物理地址映射到不同的host逻辑地址，如此保证了VM之间的安全性要求。
 
 这样MEM虚拟化就是GVA->GPA->HPA的寻址过程，传统软件方法有影子页表，硬件虚拟化提供了EPT支持。
+
+
+
+
+
 
 
 kvm的源码还不小，可以[这里](http://git.kernel.org/cgit/virt/kvm/kvm.git)查看
