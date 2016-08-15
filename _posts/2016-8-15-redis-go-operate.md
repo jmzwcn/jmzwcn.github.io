@@ -1,14 +1,14 @@
 ---
+tags: golang
 layout: post
 title: Golang操作Redis数据库的一点实践
-categories: Distributed
-tags: go nosql memory
+category: Distributed
 ---
-
 Redis是一个开源的使用C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。
 
 下面列出如何在Golang语言中的操作代码
 
+<!--more-->
 
 `代码`：
 
