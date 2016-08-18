@@ -1,10 +1,8 @@
 ---
-tags:
-  - linux
-  - 'virtualization'
+tags: kvm virtualization
 layout: post
 title: 'Linux硬件虚拟化的几个级别及KVM'
-category: linux
+category: Linux
 ---
 虚拟化的几个级别，及KVM的原理，实现方式
 
