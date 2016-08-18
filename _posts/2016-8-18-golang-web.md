@@ -2,11 +2,11 @@
 tags: go
 layout: post
 title: GO语言,Web应用之间的处理方式
-category: Linux
+category: Language
 ---
 Go作为编译型语言，性能不俗。但我们该如何把它与Web结合呢，比如我们常见的网站，包括前台UI，后台逻辑，是如何处理的呢？ 
 
-
+<!--more-->
 我直接贴一段Go官网的示例代码
 
 
@@ -103,7 +103,7 @@ func main() {
 
 ```
 
-作个总结，其实就是http监听加模板的思路。
+作个总结，其实就是http监听(url pattern)+模板的思路。
 
 
 参考网址

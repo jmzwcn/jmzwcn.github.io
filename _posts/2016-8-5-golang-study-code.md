@@ -2,7 +2,7 @@
 tags: go
 layout: post
 title: '回应网友算法问题-go语言如何求取二维数组最长路径？'
-category: Linux
+category: Language
 ---
 在studygolang上看到网友提出的算法问题，觉得挺好，也算是一起学习，现给出我的一个实现。
 
