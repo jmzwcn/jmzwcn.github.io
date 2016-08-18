@@ -1,9 +1,8 @@
 ---
 layout: post
 title: Getting started with Delve
-date: 2016-06-16 11:00:30
-categories: 编程语言
-tags: golang
+categories: Language
+tags: go
 excerpt: Getting started with Delve
 ---
 
