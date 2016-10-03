@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Mon, 03 Oct 2016 03:42:15 +0000
+Source: docker-engine
+Binary: docker-engine
+Architecture: source amd64
+Version: 1.13.0~dev~git20160926.023925.0.b304353-0~stretch
+Distribution: stretch
+Urgency: low
+Maintainer: Docker <support@docker.com>
+Changed-By: Docker <support@docker.com>
+Description:
+ docker-engine - Docker: the open-source application container engine
+Changes:
+ docker-engine (1.13.0~dev~git20160926.023925.0.b304353-0~stretch) stretch; urgency=low
+ .
+   * Version: 1.13.0-dev
+Checksums-Sha1:
+ 95f47a3484cab2a4a4bcbe238d0bfc6932062424 816 docker-engine_1.13.0~dev~git20160926.023925.0.b304353-0~stretch.dsc
+ ec800b290f5163b0fcbe6d706bdb3e3b989a316c 13941644 docker-engine_1.13.0~dev~git20160926.023925.0.b304353-0~stretch.tar.gz
+ fdc0fc4f44da947089045761d830b86d82342ce3 17509154 docker-engine_1.13.0~dev~git20160926.023925.0.b304353-0~stretch_amd64.deb
+Checksums-Sha256:
+ 3a435356d0b52062fefd67f5a9376d382925ff83e7c4bc82c44ca40741248881 816 docker-engine_1.13.0~dev~git20160926.023925.0.b304353-0~stretch.dsc
+ 1f061d7dbdead4d4dd5ad607f1aa5c1991863abc9e4b7d9c130e5b62098fce34 13941644 docker-engine_1.13.0~dev~git20160926.023925.0.b304353-0~stretch.tar.gz
+ 38d24138c86dbfb63f3ef23abafa3800ee25724c5bd19cf720e74189920293d6 17509154 docker-engine_1.13.0~dev~git20160926.023925.0.b304353-0~stretch_amd64.deb
+Files:
+ 69005b6b5ff03adf0598b14b70eedcb1 816 admin optional docker-engine_1.13.0~dev~git20160926.023925.0.b304353-0~stretch.dsc
+ b36f0baaf975143ae39b0e093980dd6e 13941644 admin optional docker-engine_1.13.0~dev~git20160926.023925.0.b304353-0~stretch.tar.gz
+ b0324841945d27c28bd3077b9ee7fcd5 17509154 admin optional docker-engine_1.13.0~dev~git20160926.023925.0.b304353-0~stretch_amd64.deb

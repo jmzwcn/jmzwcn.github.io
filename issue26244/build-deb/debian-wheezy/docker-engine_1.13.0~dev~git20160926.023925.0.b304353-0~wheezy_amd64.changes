@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Mon, 03 Oct 2016 03:42:15 +0000
+Source: docker-engine
+Binary: docker-engine
+Architecture: source amd64
+Version: 1.13.0~dev~git20160926.023925.0.b304353-0~wheezy
+Distribution: wheezy
+Urgency: low
+Maintainer: Docker <support@docker.com>
+Changed-By: Docker <support@docker.com>
+Description: 
+ docker-engine - Docker: the open-source application container engine
+Changes: 
+ docker-engine (1.13.0~dev~git20160926.023925.0.b304353-0~wheezy) wheezy; urgency=low
+ .
+   * Version: 1.13.0-dev
+Checksums-Sha1: 
+ a9a87cb6927fed227fab02dfc7236de80b463e86 801 docker-engine_1.13.0~dev~git20160926.023925.0.b304353-0~wheezy.dsc
+ 347192acbcece27b2f506ee4d4066568ee412cd1 13919296 docker-engine_1.13.0~dev~git20160926.023925.0.b304353-0~wheezy.tar.gz
+ fdc807657258a5a4312461cd4bac2fc4b718c1fc 25350986 docker-engine_1.13.0~dev~git20160926.023925.0.b304353-0~wheezy_amd64.deb
+Checksums-Sha256: 
+ b10029ed41c84991f99bad2af88e272ad7385761af5a7f28798bd24c765f3ea9 801 docker-engine_1.13.0~dev~git20160926.023925.0.b304353-0~wheezy.dsc
+ 39d2304b64317b03935f48aba1c7b5ead8921905115a107756b4aef079e711e0 13919296 docker-engine_1.13.0~dev~git20160926.023925.0.b304353-0~wheezy.tar.gz
+ 18cd40134fe8012323dc9526501a673792063defab7c123a780402b28b9e1768 25350986 docker-engine_1.13.0~dev~git20160926.023925.0.b304353-0~wheezy_amd64.deb
+Files: 
+ e3dd8136cdeec9e230a6dbdcf6e341b8 801 admin optional docker-engine_1.13.0~dev~git20160926.023925.0.b304353-0~wheezy.dsc
+ 2dae3d02b4de8c692c4bb4dc1dee181d 13919296 admin optional docker-engine_1.13.0~dev~git20160926.023925.0.b304353-0~wheezy.tar.gz
+ 59d454b87857f24273fa75ecab6c5365 25350986 admin optional docker-engine_1.13.0~dev~git20160926.023925.0.b304353-0~wheezy_amd64.deb
