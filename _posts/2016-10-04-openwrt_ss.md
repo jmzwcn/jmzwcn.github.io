@@ -15,7 +15,7 @@ category: Language
 vi /etc/shadowsocks/config.json
 
 {
-    "server":"191.101.*.*",
+    "server":"*.*.*.*",
     "server_port":8388,
     "local_address": "127.0.0.1",
     "local_port":1080,
@@ -53,7 +53,7 @@ config servers
         option auth '0'                                                                                                                        
         option fast_open '0'                                                                                                                   
         option server_port '8388'                                                                                                              
-        option server '191.101.*.*'                                                                                                          
+        option server '*.*.*.*'                                                                                                          
         option timeout '600'                                                                                                                   
         option password '***'                                                                                                           
         option encrypt_method 'aes-256-cfb'                                                                                                    
@@ -76,9 +76,13 @@ config access_control
 
 
 
-参考网址
-* [2016年国外支持Alipay(支付宝)付款VPS收集](http://www.zhujiceping.com/17104.html)
-* [在 OpenWRT 上使用 ShadowSocks 建立透明代理](http://undownding.me/2015/02/10/use-shadowsocks-on-openwrt/)
 
+
+
+参考网址
+
+* [2016年国外支持Alipay(支付宝)付款VPS收集](http://www.zhujiceping.com/17104.html)
+
+* [在 OpenWRT 上使用 ShadowSocks 建立透明代理](http://undownding.me/2015/02/10/use-shadowsocks-on-openwrt/)
 
 
