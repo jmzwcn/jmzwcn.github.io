@@ -4,13 +4,15 @@ layout: post
 title: OpenWrt创建一个自由上网的环境
 category: Language
 ---
-学习GOLANG，不少依赖都是blocked,这种现实需求较迫切。
+学习GoLang，不少依赖都是blocked,这种现实需求较迫切。
 
 首先需要在国外买个VPS，一个有独立IP的虚拟机，装OS(CentOS,Ubuntu等)，
 <!--more-->
 之后安装SS服务端，以Ubuntu16.04为例，
-安装SS:apt-get install shadowsocks
-开机启动:systemctl enable shadowsocks
+安装SS:
+apt-get install shadowsocks
+开机启动:
+systemctl enable shadowsocks
 
 配置
 vi /etc/shadowsocks/config.json
