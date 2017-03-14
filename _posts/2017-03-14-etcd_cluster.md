@@ -161,7 +161,7 @@ etcd --name etcd2 --initial-advertise-peer-urls http://10.0.1.12:2380 \
 
 ### 使用方式
 无须再配proxy,以kube-apiserver为例，将访问etcd集群的参数设置为：　--etcd-servers=http://10.0.0.1:4001,http://10.0.0.2:4001,http://10.0.0.3:4001 
-
+flannel参数：--etcd-endpoints=http://127.0.0.1:4001: a comma-delimited list of etcd endpoints.
 
 
 [Fore more](https://coreos.com/etcd/docs/latest/op-guide/clustering.html#etcd-discovery)
