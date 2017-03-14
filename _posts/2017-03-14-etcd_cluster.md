@@ -23,7 +23,7 @@ Requirements:
   - DNS Discovery;  需创建DNS记录
 
 
-#### 1.static配置方式（要配置本方地址和其他人地址）
+#### 1.static配置方式（要配置本节点地址和其他节点地址）
 
 适用于在配置前已经明确各种信息的情况，比如集群的大小，各member的ip，端口等信息。
 
@@ -79,7 +79,7 @@ etcd --name etcd2  \
 static配置方式下，且处于运行阶段时，所有--initial-cluster参数没作用，带与不带都没有影响。
 
 
-#### 2.discovery自发现方式（只配置本方地址，其他人地址从中介处获取）
+#### 2.discovery自发现方式（只配置本节点地址，其他节点地址从中介[discoveryURL]处获取）
 
 依赖于第三方etcd服务。在“集群建立阶段”各member都向第三方etcd服务注册，也从其获取其他member的信息。就像有个中介一样。
 
@@ -159,5 +159,9 @@ etcd --name etcd2 --initial-advertise-peer-urls http://10.0.1.12:2380 \
 
 
 
-使用方式,无须再配proxy
-以kube-apiserver为例，将访问etcd集群的参数设置为：　--etcd-servers=http://10.0.0.1:4001,http://10.0.0.2:4001,http://10.0.0.3:4001 
+### 使用方式
+无须再配proxy,以kube-apiserver为例，将访问etcd集群的参数设置为：　--etcd-servers=http://10.0.0.1:4001,http://10.0.0.2:4001,http://10.0.0.3:4001 
+
+
+
+[Fore more](https://coreos.com/etcd/docs/latest/op-guide/clustering.html#etcd-discovery)
