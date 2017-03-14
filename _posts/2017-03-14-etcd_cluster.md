@@ -7,21 +7,23 @@ category: orchestration
 
 etcd在整个Kubernetes集群中处于中心数据库的地位，<!--more-->为保证Kubernetes集群的高可用性，首先需要保证数据库不是单故障点。一方面，etcd需要以集群的方式进行部署，以实现etcd数据存储的冗余、备份与高可用性；另一方面，etcd存储的数据本身也应考虑使用可靠的存储设备。 
 
-# 部署方案介绍
+## 部署方案介绍
 
-## 第一种：[etcd operator](https://github.com/coreos/etcd-operator). 比较新，处于beta阶段，简化了配置与管理，是利用k8s [`User Aggregated API Servers`](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/aggregated-api-servers.md)机制来实现的。etcd server本身也是容器化部署。
+### 第一种：[etcd operator](https://github.com/coreos/etcd-operator). 
+比较新，处于beta阶段，简化了配置与管理，是利用k8s [`User Aggregated API Servers`](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/aggregated-api-servers.md)机制来实现的。etcd server本身也是容器化部署。
 Requirements:
  - k8s 1.5.3+
  - etcd 3.0+
 
-## 第二种：传统方式，官方有[介绍文档](https://coreos.com/etcd/docs/latest/op-guide/clustering.html)，比较成熟，但灵活度不够，比如扩容性方面，节点依赖等。
+### 第二种：传统方式
+官方有[介绍文档](https://coreos.com/etcd/docs/latest/op-guide/clustering.html)，比较成熟，但灵活度不够，比如扩容性方面，节点依赖等。
  分三种情况:
   - Static：已知IP，逐个节点安装
-  - etcd Discovery: 共享A discovery URL,须联网（依赖另一个K/V store）[个人推荐方式]
+  - etcd Discovery: 共享A discovery URL,须联网（依赖另一个K/V store）[本人推荐方式]
   - DNS Discovery;  需创建DNS记录
 
 
- ### 1、static配置方式（要配置本方地址和其他人地址）
+ #### 1、static配置方式（要配置本方地址和其他人地址）
 
 适用于在配置前已经明确各种信息的情况，比如集群的大小，各member的ip，端口等信息。
 
@@ -77,7 +79,7 @@ etcd --name etcd2  \
 static配置方式下，且处于运行阶段时，所有--initial-cluster参数没作用，带与不带都没有影响。
 
 
- ### 2、discovery自发现方式（只配置本方地址，其他人地址从中介处获取）
+#### 2、discovery自发现方式（只配置本方地址，其他人地址从中介处获取）
 
 依赖于第三方etcd服务。在“集群建立阶段”各member都向第三方etcd服务注册，也从其获取其他member的信息。就像有个中介一样。
 
