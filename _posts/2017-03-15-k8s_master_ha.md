@@ -26,6 +26,7 @@ category: orchestration
 
 ## 配置步骤
 
+假定三个master节点的ip分别是10.0.1.10，10.0.1.11，10.0.1.12,
 
 ### 第一步：给每台master安装kubelet，以便于后续容器化安装各个组件。
 下载[kubelet binary](https://storage.googleapis.com/kubernetes-release/release/v0.19.3/bin/linux/amd64/kubelet),安装
@@ -51,18 +52,20 @@ This directory includes:
 Starting the API Server
 以容器的方式起，Pods文件请[下载](https://kubernetes.io/docs/admin/high-availability/kube-apiserver.yaml)，之后放在`/etc/kubernetes/manifests/`,kubelet会自动监视这个目录的变化，并启动对应Pods.
 
-### 第四步：给API servers加proxy[Load balancing]
-因为现在有了三个API server在监听node1-ip:8080,node2-ip:8080,node3-ip:8080，可用nginx做转发，
+### 第四步：给API servers加Proxy [load balancing] 
+假定Proxy ip为10.0.1.13
+因为现在有了三个API server在监听10.0.1.10:8080,10.0.1.11:8080,10.0.1.12:8080，可用nginx做转发，
 ```sh
 upstream backend {
              #ip_hash;
-             server 192.168.1.251;
-             server 192.168.1.252;
-             server 192.168.1.247;
+             server 10.0.1.10:8080;
+             server 10.0.1.11:8080;
+             server 10.0.1.12:8080;
          }
 
 server {
         listen       8080;
+        server_name 10.0.1.13:8080;
         location / {
              #反向代理的地址
              proxy_pass http://backend;  
@@ -72,12 +75,12 @@ server {
 ### 第五步：在每个master节点Starting scheduler，关键点：开启--leader-elect=true
 
 先建log文件，防止Docker把它mount成目录:`touch /var/log/kube-scheduler.log`
-以容器的方式起，Pods文件请[下载](https://kubernetes.io/docs/admin/high-availability/kube-scheduler.yaml)，之后放在`/etc/kubernetes/manifests/`,kubelet会自动监视这个目录的变化，并启动对应Pods.
+以容器的方式起，Pods文件请[下载](https://kubernetes.io/docs/admin/high-availability/kube-scheduler.yaml)，注意修改master url为proxy ip.之后放在`/etc/kubernetes/manifests/`,kubelet会自动监视这个目录的变化，并启动对应Pods.
 
 ### 第六步：在每个master节点Starting controller-manager，关键点：开启--leader-elect=true
 
 先建log文件，防止Docker把它mount成目录:`touch /var/log/kube-controller-manager.log`
-以容器的方式起，Pods文件请[下载](https://kubernetes.io/docs/admin/high-availability/kube-controller-manager.yaml)，之后放在`/etc/kubernetes/manifests/`,kubelet会自动监视这个目录的变化，并启动对应Pods.
+以容器的方式起，Pods文件请[下载](https://kubernetes.io/docs/admin/high-availability/kube-controller-manager.yaml)，注意修改master url为proxy ip,之后放在`/etc/kubernetes/manifests/`,kubelet会自动监视这个目录的变化，并启动对应Pods.
 
 
 
