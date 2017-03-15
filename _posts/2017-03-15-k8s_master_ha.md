@@ -82,5 +82,7 @@ server {
 以容器的方式起，Pods文件请[下载](https://kubernetes.io/docs/admin/high-availability/kube-controller-manager.yaml)，注意修改master url为proxy ip,之后放在`/etc/kubernetes/manifests/`,kubelet会自动监视这个目录的变化，并启动对应Pods.
 
 
+之后再把非master[worker node]节点的api-server逐个指向proxy ip[10.0.1.13].
 
-## 参考资料
+
++ 参考资料
