@@ -18,13 +18,13 @@ category: orchestration
 这里其实是指Master节点的HA方式，官方目前采取的方式： 利用etcd实现master 选举，从多个Master中得到一个kube-apiserver 保证至少有一个master可用，实现high availability。对外以loadbalancer的方式提供入口。这种方式可以用作ha，但仍未成熟，据了解，未来会更新升级ha的功能。
 
 
-最终呈现效果图：
+#### 最终呈现效果图：
 
 ![效果图](https://kubernetes.io/images/docs/ha.svg)
 
 这种方式是基于容器部署的，把api-server,scheduler,controller-manager均放于容器内。
 
-## 配置方式
+## 配置步骤
 
 
 ### 第一步：给每台master安装kubelet，以便于后续容器化安装各个组件。
@@ -71,13 +71,14 @@ server {
 ```
 ### 第五步：在每个master节点Starting scheduler，关键点：开启--leader-elect=true
 
-建log文件，防止Docker把它mount成目录:`touch /var/log/kube-scheduler.log`
+先建log文件，防止Docker把它mount成目录:`touch /var/log/kube-scheduler.log`
 以容器的方式起，Pods文件请[下载](https://kubernetes.io/docs/admin/high-availability/kube-scheduler.yaml)，之后放在`/etc/kubernetes/manifests/`,kubelet会自动监视这个目录的变化，并启动对应Pods.
 
 ### 第六步：在每个master节点Starting controller-manager，关键点：开启--leader-elect=true
 
-建log文件，防止Docker把它mount成目录:`touch /var/log/kube-controller-manager.log`
+先建log文件，防止Docker把它mount成目录:`touch /var/log/kube-controller-manager.log`
 以容器的方式起，Pods文件请[下载](https://kubernetes.io/docs/admin/high-availability/kube-controller-manager.yaml)，之后放在`/etc/kubernetes/manifests/`,kubelet会自动监视这个目录的变化，并启动对应Pods.
 
 
-参考资料
+
+## 参考资料
