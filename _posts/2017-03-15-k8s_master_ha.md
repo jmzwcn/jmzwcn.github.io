@@ -19,8 +19,7 @@ category: orchestration
 
 
 #### 最终呈现效果图：
-
-![效果图](https://kubernetes.io/images/docs/ha.svg =200)
+<img src="https://kubernetes.io/images/docs/ha.svg" width = "60%" />
 
 这种方式是基于容器部署的，把api-server,scheduler,controller-manager均放于容器内。
 
