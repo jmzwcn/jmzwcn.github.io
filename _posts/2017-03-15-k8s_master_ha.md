@@ -19,9 +19,9 @@ category: orchestration
 
 
 #### 最终呈现效果图：
-<img src="https://kubernetes.io/images/docs/ha.svg" width = "60%" />
+<img src="https://kubernetes.io/images/docs/ha.svg" width = "80%" />
 
-这种方式是基于容器部署的，把api-server,scheduler,controller-manager均放于容器内。
+这种方式是基于容器部署的，也就是把api-server,scheduler,controller-manager均放于容器内。
 
 ## 配置步骤
 
@@ -53,7 +53,7 @@ Starting the API Server
 
 ### 第四步：给API servers加Proxy [load balancing] 
 
-因为现在有了三个API server在监听10.0.1.10:8080,10.0.1.11:8080,10.0.1.12:8080，可用nginx做转发，
+因为现在有了三个API server在监听10.0.1.10:8080,10.0.1.11:8080,10.0.1.12:8080，用nginx做proxy转发，
 ```sh
 upstream backend {
              #ip_hash;
