@@ -12,12 +12,12 @@ category: orchestration
 
 
 改进关键点：以VIP的方式的提供masters访问端点，并双节点部署，,避免了之前的单节点(load balancer)情况。
-![结构图](http://images2015.cnblogs.com/blog/713972/201608/713972-20160824164712761-1788045403.png)
+![结构图](http://images2015.cnblogs.com/blog/713972/201608/713972-20160824164712761-1788045403.png) <br/>
 VIP后段实现方式：
 - Nginx+Keepalived;
 - LVS+Keepalived;[本人推荐此种方式]
 - HAProxy+Keepalived;
-![示例](http://www.skycloudsoftware.com/wp-content/uploads/zw_k8s06.png)
+![示例](http://www.skycloudsoftware.com/wp-content/uploads/zw_k8s05.png)
 
 ### 参考资料
 
