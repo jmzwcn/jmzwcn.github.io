@@ -21,7 +21,7 @@ Requirements:
   - 1.Static：已知集群所有节点IP，逐个节点安装
   - 2.etcd Discovery: 共享一个 discovery URL，[本人推荐方式]<br/>
   优点：和静态的比，不用提前知道集群所有节点的IP信息；<br/>
-  缺点：须联网，不然须先一个单节点etcd,依赖已经存在的K/V服务。
+  缺点：须联网，不然须先建一个单节点etcd,依赖已经存在的K/V服务。
   - 3.DNS Discovery:  基于DNS SVR记录<br/>
   优点：节点替换方便，比如API server里的etcd-servers参数用域名的话，不用动；<br/>
   缺点：节点增加/删除的话和2比，会多一个增加/删除DNS记录的操作。
@@ -238,7 +238,9 @@ etcd: this member has been permanently removed from the cluster. Exiting.
 
 
 ### 使用方式
-无须再配proxy,以kube-apiserver为例，将访问etcd集群的参数设置为：　--etcd-servers=http://10.0.0.1:4001,http://10.0.0.2:4001,http://10.0.0.3:4001 
+无须再配proxy,访问etcd集群的参数设置为:<br/>
+　
+kube-apiserver参数：--etcd-servers=http://10.0.0.1:4001,http://10.0.0.2:4001,http://10.0.0.3:4001 </br/>
 flannel参数：--etcd-endpoints=http://127.0.0.1:4001: a comma-delimited list of etcd endpoints.
 
 
