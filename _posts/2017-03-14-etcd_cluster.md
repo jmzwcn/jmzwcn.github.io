@@ -19,10 +19,10 @@ Requirements:
 官方有[介绍文档](https://coreos.com/etcd/docs/latest/op-guide/clustering.html)，比较成熟，但灵活度不够，比如扩容性方面，节点依赖等。
  分三种情况:
   - 1.Static：已知集群所有节点IP，逐个节点安装
-  - 2.etcd Discovery: 共享一个 discovery URL，[本人推荐方式]
+  - 2.etcd Discovery: 共享一个 discovery URL，[本人推荐方式]<br/>
   优点：和静态的比，不用提前知道集群所有节点的IP信息；<br/>
   缺点：须联网，依赖已经存在的K/V discovery服务。
-  - 3.DNS Discovery;  基于DNS SVR记录
+  - 3.DNS Discovery;  基于DNS SVR记录<br/>
   优点：节点替换方便，比如API server里的etcd-servers参数用域名的话，不用动；<br/>
   缺点：节点增加/删除的话和2比，会多一个增加/删除DNS记录的操作。
 
