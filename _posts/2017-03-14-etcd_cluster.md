@@ -238,7 +238,7 @@ etcd: this member has been permanently removed from the cluster. Exiting.
 
 
 ### 使用方式
-无须再配proxy,访问etcd集群的参数设置为:<br/>
+无须再配proxy,访问etcd集群的参数设置:<br/>
 
 kube-apiserver参数：--etcd-servers=http://10.0.0.1:4001,http://10.0.0.2:4001,http://10.0.0.3:4001 <br/>
 flannel参数：--etcd-endpoints=http://127.0.0.1:4001: a comma-delimited list of etcd endpoints.
