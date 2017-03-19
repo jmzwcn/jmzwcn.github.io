@@ -242,6 +242,26 @@ etcd: this member has been permanently removed from the cluster. Exiting.
 
 kube-apiserver参数：--etcd-servers=http://10.0.0.1:4001,http://10.0.0.2:4001,http://10.0.0.3:4001 <br/>
 flannel参数：--etcd-endpoints=http://127.0.0.1:4001: a comma-delimited list of etcd endpoints.
+<br/>
+<br/>
+
+API Server etcd-servers的load balancer实现
+simpleBalancer（https://github.com/coreos/etcd/blob/master/clientv3/balancer.go）：
+算法就是同时去connect配的这些地址，谁先返回，就把它作为一个pinned address,之后就一直用它，除非它有异常；
+
+其实它是把gRPC的默认实现[roundRobin](https://github.com/grpc/grpc-go/blob/master/balancer.go#L156)重写了。
+
+
+健康检查
+实现是lbWatcher(基于transportMonitor) 
+https://github.com/grpc/grpc-go/blob/d50cf2db166eaff3f2429425758d12205085eb5b/clientconn.go#L856
+
+flannel的etcd-endpoints参数与API Server一样，也是调的etcd的实现。
+
+更多参考链接
+https://github.com/kubernetes/apiserver/blob/51bebaffa01be9dc28195140da276c2f39a10cd4/pkg/server/options/etcd.go
+https://github.com/coreos/etcd/blob/master/clientv3/config.go#L27
+https://github.com/coreos/etcd/blob/master/clientv3/client.go#L351
 
 
 [Fore more](https://coreos.com/etcd/docs/latest/op-guide/clustering.html#etcd-discovery)
