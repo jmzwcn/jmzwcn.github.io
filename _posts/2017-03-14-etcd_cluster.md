@@ -244,9 +244,9 @@ kube-apiserver参数：--etcd-servers=http://10.0.0.1:4001,http://10.0.0.2:4001,
 flannel参数：--etcd-endpoints=http://127.0.0.1:4001: a comma-delimited list of etcd endpoints.
 <br/>
 <br/>
-<p>负载均衡</p>
+## 负载均衡
 API Server etcd-servers的load balancer实现<br/>
-simpleBalancer（https://github.com/coreos/etcd/blob/master/clientv3/balancer.go）：<br/>
+引用etcd的simpleBalancer（https://github.com/coreos/etcd/blob/master/clientv3/balancer.go）：<br/>
 算法就是同时去connect配的这些地址，谁先返回，就把它作为一个pinned address,之后就一直用它，除非它有异常；<br/>
 
 其实它是把gRPC的默认实现roundRobin(https://github.com/grpc/grpc-go/blob/master/balancer.go#L156)重写了。<br/><br/>
