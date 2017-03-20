@@ -8,10 +8,10 @@ category: orchestration
 ### 核心提示：
 k8s的HA，关键点有两处，
 - 一个是多master怎么配合，使其达到active-standby的效果<br/>
-这个是目前k8s[代码里](https://github.com/kubernetes/kubernetes/blob/fc31dae165f406026142f0dd9a98cada8474682a/pkg/client/leaderelection/leaderelection.go#L292)已经实现的一个功能，其原理是一个选举机制[基于lease lock实现](https://github.com/kubernetes/kubernetes/blob/fc31dae165f406026142f0dd9a98cada8474682a/pkg/client/leaderelection/leaderelection.go#L177)，关于怎么使用，官方文档有相应[介绍](https://github.com/kubernetes/kubernetes/blob/master/docs/admin/high-availability.md)。
+这个是目前k8s[代码里](https://github.com/kubernetes/kubernetes/blob/fc31dae165f406026142f0dd9a98cada8474682a/pkg/client/leaderelection/leaderelection.go#L292)已经实现的一个功能，其原理是一个选举机制[基于lease lock实现](https://github.com/kubernetes/kubernetes/blob/fc31dae165f406026142f0dd9a98cada8474682a/pkg/client/leaderelection/leaderelection.go#L177)，关于怎么使用这种工作机制，官方文档有相应[介绍](https://github.com/kubernetes/kubernetes/blob/master/docs/admin/high-availability.md)。
 
 - 另外一个问题就是外部怎么调多masters？<br/>
-我们能不能像调用etcd集群一样，配一个带s的url?，在搭k8s的时候，我们已经知道，对master的调用有两处，一个所有节点(包括master和worker node)上的一个配置，
+比如，我们能不能像调用etcd集群一样，配一个带s的url?，在搭k8s的时候，我们已经知道，对master的调用有两处，一个所有节点(包括master和worker node)上的一个配置，
 ```sh
 vim  /etc/kubernetes/config
 
@@ -23,7 +23,7 @@ vim /etc/kubernetes/kubelet
 
 KUBELET_API_SERVER="--api_servers=http://10.13.32.223:8080"
 ```
-其实观察上面的使用方式，我们已经看出`KUBE_MASTER`这个参数，是单点的，也就是HA里需重点处理的，所以k8s HA各种方案，其实都是围绕这个展开的。
+其实观察上面的使用方式，我们已经看出`--master=http://10.13.32.223:8080`这个参数，是单点的，也就是HA里需重点处理的，所以k8s HA各种方案，其实都是围绕这个展开的。
 
 
 ## 比较网络上的各种方案：
