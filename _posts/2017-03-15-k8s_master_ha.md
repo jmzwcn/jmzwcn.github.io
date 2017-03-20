@@ -26,7 +26,7 @@ KUBELET_API_SERVER="--api_servers=http://10.13.32.223:8080"
 其实观察上面的使用方式，我们已经看出`--master=http://10.13.32.223:8080`这个参数，是单点的，也就是HA里需重点处理的，所以k8s HA各种方案，其实都是围绕这个展开的。
 
 
-## 比较网络上的各种方案：
+## 比较各种方案：
 - [Kubernetes Master High Availability 高级实践](https://www.sdk.cn/news/4068)
 - [[经验交流] Active-Active 方式设置 kubernetes master 多节点高可用](http://www.cnblogs.com/hahp/p/5803694.html)
 - [Kubernetes高可用集群的部署方案](http://lecury.cn/k8s-ha/)
