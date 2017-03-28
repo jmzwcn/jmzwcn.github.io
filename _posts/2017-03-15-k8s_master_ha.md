@@ -8,7 +8,7 @@ category: orchestration
 ### 核心提示：
 k8s的HA，关键点有两处，
 - 一处是多master怎么配合，使其达到active-standby的效果<br/>
-这个是目前k8s[代码里](https://github.com/kubernetes/kubernetes/blob/fc31dae165f406026142f0dd9a98cada8474682a/pkg/client/leaderelection/leaderelection.go#L292)已经实现的一个功能，其原理是一个选举机制[基于lease lock实现](https://github.com/kubernetes/kubernetes/blob/fc31dae165f406026142f0dd9a98cada8474682a/pkg/client/leaderelection/leaderelection.go#L177)，关于怎么使用这种工作机制，官方有相应[文档介绍](https://github.com/kubernetes/kubernetes/blob/master/docs/admin/high-availability.md)。
+这个是目前k8s[代码里]<!--more-->(https://github.com/kubernetes/kubernetes/blob/fc31dae165f406026142f0dd9a98cada8474682a/pkg/client/leaderelection/leaderelection.go#L292)已经实现的一个功能，其原理是一个选举机制[基于lease lock实现](https://github.com/kubernetes/kubernetes/blob/fc31dae165f406026142f0dd9a98cada8474682a/pkg/client/leaderelection/leaderelection.go#L177)，关于怎么使用这种工作机制，官方有相应[文档介绍](https://github.com/kubernetes/kubernetes/blob/master/docs/admin/high-availability.md)。
 
 - 另外一处就是外部怎么调多masters？<br/>
 比如，我们能不能像调用etcd集群一样，配一个带s的url?，在搭k8s的时候，我们已经知道，对master的调用有两处，一个所有节点(包括master和worker node)上的一个配置，
