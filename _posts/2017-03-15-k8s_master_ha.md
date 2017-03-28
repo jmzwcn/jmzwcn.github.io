@@ -23,7 +23,7 @@ vim /etc/kubernetes/kubelet
 
 KUBELET_API_SERVER="--api_servers=http://10.13.32.223:8080"
 ```
-其实观察上面的使用方式，我们已经看出`--master=http://10.13.32.223:8080`这个参数，是单点的，也就是HA里需重点处理的，所以k8s HA各种方案，其实都是围绕这个展开的。
+观察上面的使用方式，我们已经看出`--master=http://10.13.32.223:8080`这个参数，是单点的，也就是HA里需重点处理的，所以k8s HA各种方案，其实都是围绕这个展开的。
 
 
 ## 比较各种方案：
@@ -34,7 +34,7 @@ KUBELET_API_SERVER="--api_servers=http://10.13.32.223:8080"
 
 改进关键点：以VIP的方式的提供masters访问端点，并双节点部署，,避免了之前的单节点(load balancer)情况。
 ![结构图](http://images2015.cnblogs.com/blog/713972/201608/713972-20160824164712761-1788045403.png) <br/>
-VIP后段实现方式：
+VIP后端实现方式：
 - Nginx+Keepalived;
 - LVS+Keepalived;[本人推荐此种方式]
 - HAProxy+Keepalived;
